@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+
+</h:head>
+<h:body>
+    <h:form>
+    <h:outputLabel for="buscar" value="Buscar"/>
+       <h:inputText id="buscar" value="#{studentBean.studentDTO.idStudent}"/>
+
+        <h:commandButton action="#{studentBean.findStudent}" value="Buscar"/>
+
+        <br/><br/>
+        <a href="index.xhtml">volver</a>
+
+        <h:panelGroup id="updatePanel" layout="block">
+        <h:panelGroup rendered="#{not empty studentBean.studentDTO }">
+
+        <h:outputLabel for="nombre" value="Nombre"/>
+        <h:inputText id="nombre" value="#{studentBean.studentDTO.name}"/>
+
+        <h:outputLabel for="subject" value="Subject"/>
+        <h:inputText id="subject" value="#{studentBean.studentDTO.subject}"/>
+
+            <h:commandButton action="#{studentBean.updateStudent()}" value="Actualizar"/>
+            <h:outputText value="#{studentBean.getString4()}"/>
+
+        </h:panelGroup>
+        </h:panelGroup>
+
+    </h:form>
+
+</h:body>
+</html>
