@@ -12,10 +12,14 @@ public class Student {
     private int idStudent;
     @Column(name = "name")
     private String name;
-    @Column(name = "age")
-    private int age;
-    @Column(name = "subject")
-    private String subject;
+        @Column(name = "age")
+        private int age;
+        @Column(name = "subject")
+        private String subject;
+
+    @ManyToOne
+    @JoinColumn(name = "university_id", nullable = false)
+    private University university;
 
     public Student(int idStudent, String name, int age, String subject) {
         this.name = name;
